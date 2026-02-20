@@ -940,8 +940,10 @@ class CalculateCostView(APIView):
 def login_view(request):
     username = request.data.get("username")
     password = request.data.get("password")
+    print(f"DEBUG: Login attempt for username: {username}")
     user = authenticate(username=username, password=password)
     if user:
+        print(f"DEBUG: Login successful for user: {user.username}")
         return Response(
             {
                 "message": "Login successful",
@@ -950,6 +952,7 @@ def login_view(request):
             }
         )
     else:
+        print(f"DEBUG: Login failed for username: {username}")
         return Response(
             {"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED
         )
