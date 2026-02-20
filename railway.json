@@ -5,6 +5,7 @@
         "buildCommand": "pip install -r requirements.txt && cd apps/water_tracker/frontend && npm install && npm run build && cd ../../../ && python manage.py collectstatic --noinput"
     },
     "deploy": {
-        "startCommand": "gunicorn rathinamHR.wsgi"
+        "startCommand": "gunicorn rathinamHR.wsgi",
+        "preDeployCommand": "python manage.py migrate --noinput && python manage.py loaddata data_dump.json"
     }
 }
