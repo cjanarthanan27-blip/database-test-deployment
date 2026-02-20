@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure clean, artifact-free rendering */
+html,
+body {
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+.dark body {
+    background-color: #0f172a; /* Deeper slate for a more premium look */
+    color: #f1f5f9;
+}
+
+/* Global Form Elements Theme */
+input, select, textarea {
+    @apply transition-colors duration-200;
+}
+
+.dark input:not([type="checkbox"]):not([type="radio"]), 
+.dark select, 
+.dark textarea {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+.dark input::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Specific Date Picker Styling for Dark Mode */
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.9);
+    cursor: pointer;
+}
+
+/* Enhanced Table Styling */
+.dark table {
+    border-color: #334155 !important;
+}
+
+.dark thead {
+    @apply bg-slate-800/50;
+}
+
+.dark th {
+    color: #94a3b8 !important;
+    border-color: #334155 !important;
+}
+
+.dark td {
+    border-color: #1e293b !important;
+}
+
+.dark tr:hover {
+    background-color: rgba(30, 41, 59, 0.5) !important;
+}
+
+/* Navbar Dropdown Polish */
+.dark .dropdown-menu {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+#root {
+    min-height: 100vh;
+}
